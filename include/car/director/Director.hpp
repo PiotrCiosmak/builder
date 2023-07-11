@@ -1,14 +1,15 @@
 #pragma once
 
-#include "../builder/Builder.hpp"
 #include <memory>
+#include "../builder/Builder.hpp"
 
 class Director
 {
 public:
-    void setBuilder(Builder* builder);
+    void setBuilder(const std::shared_ptr<Builder>& builder);
     void buildSportCar();
     void buildSUV();
+
 private:
-    std::unique_ptr<Builder> builder;
+    std::shared_ptr<Builder> builder;
 };

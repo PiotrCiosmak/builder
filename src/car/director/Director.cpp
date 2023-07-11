@@ -1,8 +1,8 @@
 #include "../../../include/car/director/Director.hpp"
 
-void Director::setBuilder(Builder* builder)
+void Director::setBuilder(const std::shared_ptr<Builder>& builder)
 {
-    this->builder = std::unique_ptr<Builder>(builder);
+    this->builder = builder;
 }
 
 void Director::buildSportCar()

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Builder.hpp"
-#include "../Car.hpp"
 #include <memory>
+#include "../Car.hpp"
+#include "Builder.hpp"
 
 class CarBuilder : public Builder
 {
@@ -11,8 +11,9 @@ public:
     void setEngin() const override;
     void setSets() const override;
     void setTripComputer() const override;
-    std::unique_ptr<Car> getCar();
+    [[nodiscard]] std::shared_ptr<Car> getCar();
     void reset() override;
+
 private:
-    std::unique_ptr<Car> car;
+    std::shared_ptr<Car> car;
 };

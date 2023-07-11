@@ -20,14 +20,14 @@ void CarBuilder::setTripComputer() const
     this->car->addPart("trip computer");
 }
 
-std::unique_ptr<Car> CarBuilder::getCar()
+std::shared_ptr<Car> CarBuilder::getCar()
 {
-    std::unique_ptr<Car> result{std::move(this->car)};
+    std::shared_ptr<Car> result = this->car;
     this->reset();
     return result;
 }
 
 void CarBuilder::reset()
 {
-    this->car = std::make_unique<Car>();
+    this->car = std::make_shared<Car>();
 }
